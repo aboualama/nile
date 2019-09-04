@@ -24,13 +24,12 @@
 
     <!-- Start Section Head Pages -->
     <section class=" " id="header-Slider">
-        <div class="owl-carousel owl-theme ">
-            <div>
-                <img src="{{ asset('/uploads') }}/images/slider-home/1.jpg" alt="" class="img-fluid">
-            </div>
-            <div>
-                <img src="{{ asset('/uploads') }}/images/slider-home/2.jpg" alt="" class="img-fluid">
-            </div>
+        <div class="owl-carousel owl-theme "> 
+            @foreach($slids as $slid)
+                <div>
+                    <img src="{{ url('/uploads/slider') }}/{{ $slid->img }}" alt="" class="img-fluid">
+                </div>
+            @endforeach
         </div>
     </section>
     <!-- End Section Head Pages -->

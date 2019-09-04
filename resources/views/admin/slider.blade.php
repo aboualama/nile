@@ -25,7 +25,7 @@
 <section class="content">
 
    
-{{--     <div class="row">
+    <div class="row">
         <div class="col-md-12"> 
 
             {!! Form::open(['url' => 'admin/slider', 'class' => 'form-group', 'files' => true]) !!}
@@ -43,7 +43,7 @@
                 {!! Form::close() !!}
            
         </div>
-    </div> --}}
+    </div>
 
 
 <div class="row">

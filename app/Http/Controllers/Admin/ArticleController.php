@@ -63,12 +63,17 @@ class ArticleController extends Controller
         $data['mail']        = $request->mail;
         $data['address']     = $request->address;
         $data['video']       = $request->video; 
-        $data['photo']       = $request->photo->store('uploads');
-        $data['slid1']       = request('slid1')->store('uploads'); 
-        $data['slid2']       = request('slid2')->store('uploads'); 
-        $data['slid3']       = request('slid3')->store('uploads'); 
-        $data['slid4']       = request('slid4')->store('uploads'); 
- 
+        if (request()->hasFile('photo')) {  
+           $data['photo']       = $request->photo->store('uploads');       
+        }
+
+        for( $i= 0 ; $i <= 4 ; $i++ )
+        {
+            if (request()->hasFile('slid'.$i)) {  
+            $data['slid'.$i]       = request('slid'.$i)->store('uploads');       
+            }  
+        }         
+     
          
         Article::create($data);
         return redirect ('/admin/article');

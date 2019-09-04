@@ -14,7 +14,8 @@
 Route::group(['prefix' => 'admin' , 'namespace' => 'Admin'] , function(){
 
 	Config::set('auth.defines' , 'admin'); 
-	
+ 
+
 	Route::get('/login', 'AdminAuthController@loginpage' );
 	Route::post('/login', 'AdminAuthController@login' );
 	Route::get('/forgot/password', 'AdminAuthController@forgot_password' );

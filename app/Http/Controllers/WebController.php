@@ -7,28 +7,24 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\DataTables\Articledatatable;
 use App\Article;
+use App\Slider;
 use Mail;
 
 
 class WebController extends Controller
 {
-   
-    
-    public function index()
-
+     
+    public function index() 
     {   
-        $articles  =  Article::orderBy('created_at', 'desc')->paginate(8); 
-
-        return view('index' , compact('articles'));
- 
+        $articles  =  Article::orderBy('created_at', 'desc')->paginate(8);  
+        $slids     =  Slider::all();  
+        return view('index' , compact('articles', 'slids')); 
     }
 
  
 
-    public function show($id)
- 
-    {
-         
+    public function show($id) 
+    { 
         $article   = Article::where('id' , $id)->first();
         return view('item' , compact('article'));
     }
